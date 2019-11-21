@@ -249,7 +249,7 @@ def status(request, course_offering_slug):
 
     if user_is_server and force_date is not None:
         try:
-            day = datetime.strptime(force_date, '%Y-%m-%d')
+            day = datetime.strptime(force_date, '%Y-%m-%d').date()
         except ValueError:
             raise ValueError("Not a valid date: {}".format(force_date))
     else:
