@@ -280,7 +280,7 @@ class Request(models.Model):
         created_at = timezone.localtime(self.created_at)
 
         if self.type == Request.TYPE_QUICK:
-            quick = "(Quick)"
+            quick = "<strong style='color: green'>QUICK</strong>"
         else:
             quick = ""
 
@@ -306,7 +306,7 @@ class Request(models.Model):
         else:
             priority = ""
 
-        s = "[{}] {} {} {} {} {}".format(created_at.strftime("%I:%M:%S %p"), self.get_students_display, actual, quick, next_str, priority)
+        s = "[{}] {} {} {} {} {}".format(created_at.strftime("%I:%M:%S %p"), self.get_students_display, actual, next_str, quick, priority)
 
         return mark_safe(s)
 
